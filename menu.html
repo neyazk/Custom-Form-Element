@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body style="background: #fafafa">
+    <nav>
+        <ul>        
+            <li>Menu 1
+                <ul class="drop-menu menu-1">
+                    <li>office</li>
+                     <li>psd</li>
+                      <li>tally</li>
+                     <li>css</li>
+                </ul>
+            </li>
+            <li>Menu 2
+                <ul class="drop-menu menu-2">
+                    <li>office</li>
+                     <li>psd</li>
+                      <li>tally</li>
+                     <li>css</li>
+                </ul>
+            </li>
+            <li>Menu 3
+                <ul class="drop-menu menu-3">
+                    <li>office</li>
+                     <li>psd</li>
+                      <li>tally</li>
+                     <li>css</li>
+                </ul>
+            </li>
+            <li>Menu 4
+                <ul class="drop-menu menu-3">
+                    <li>office</li>
+                     <li>psd</li>
+                      <li>tally</li>
+                     <li>css</li>
+                </ul>
+            </li>
+            
+        </ul>
+    </nav>
+
+<input type="checkbox" class="lever">
+<br>       
+<input type="checkbox" class="lever round">
+
+    <script src="jquery-2.0.2.js" type="text/javascript"></script>
+    <script>
+        
+           $('input.lever').wrap('<label class="switch"></label>');
+           $('input.lever').after('<div class="slider"></div>');
+          
+          var data= $('input').hasClass('round');
+          console.log(data);
+
+           if(data=='true'){
+                $('div.slider').addClass('round');
+                 console.log(hello);
+           }
+        
+    </script>
+
+</body>
