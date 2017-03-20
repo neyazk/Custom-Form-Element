@@ -43,24 +43,54 @@
         </ul>
     </nav>
 
+<input type="checkbox" class=""><br>
+
+
 <input type="checkbox" class="lever">
 <br>       
 <input type="checkbox" class="lever round">
+<br>
+<label for="">State</label>
+<select class="select" name="state" id="slct1" onchange="populate(this.id,'slct2');">
+    <option value="haryana">Select State</option>
+    <option value="haryana">Haryana</option>
+    <option value="bihar">Bihar</option>
+    <option value="delhi">Delhi</option>
+</select>
+<label for="">City</label>
+<select class="select" name="city" id="slct2">
+    <option value="0">Select city</option>
+</select>
 
     <script src="jquery-2.0.2.js" type="text/javascript"></script>
     <script>
-        
-           $('input.lever').wrap('<label class="switch"></label>');
-           $('input.lever').after('<div class="slider"></div>');
-          
-          var data= $('input').hasClass('round');
-          console.log(data);
+         $('input.lever').wrap('<label class="switch"></label>').after('<div class="slider"></div>');;
+         $('input.round').parent().find('div.slider').addClass('round');
+           
+           
+           
+             function populate(s1,s2){
+             var s1=document.getElementById(s1);
+             var s2=document.getElementById(s2);
 
-           if(data=='true'){
-                $('div.slider').addClass('round');
-                 console.log(hello);
-           }
-        
+             s2.innerHTML='';
+             if(s1.value=='haryana'){
+                    var optionarray=['|select city','mewat|Mewat','rohtak|Rohtak','rewari|Rewari'];
+             }
+             else if(s1.value=='bihar'){
+                    var optionarray=['|select city','darbhanga|Darbhanga','gaya|Gaya','patna|Patna'];
+             }
+             else if(s1.value=='delhi'){
+                    var optionarray=['|select city','south|South','north|North','west|West'];
+             }
+             for(var option in optionarray){
+                var pair=optionarray[option].split('|');
+                var newoption=document.createElement('option');
+                newoption.value=pair[0];
+                newoption.innerHTML=pair[1];
+                s2.options.add(newoption);
+            }
+         }
     </script>
 
 </body>
