@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+	input[type="checkbox"],input[type="radio"]{
+	  display:none;
+	}
+	input[type="checkbox"] +label,input[type="radio"] +label{cursor:pointer}
+
+	input[type="checkbox"] +label:before{
+	  content:'';
+	  width:16px;
+	  height:16px;
+	  border:1px solid #ddd;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin-right:5px;
+	  line-height: 16px;
+	 }
+	input[type="checkbox"]:checked +label:before{
+	content:'\2713';
+	  background-color:#257fbb;
+	  color:#fff;
+	  border-color:#257fbb;
+	}
+
+	/*Radio*/
+	input[type="radio"] +label:before{
+	  content:'';
+	  width:14px;
+	  height:14px;
+	  font-size:24px;
+	  border-radius:50%;
+	  border:1px solid #ddd;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin-right:5px;
+	  line-height: 14px;
+	  color:#257fbb;
+	 }
+	input[type="radio"]:checked +label:before{
+	  content:'\2022';
+	  border-color:#257fbb;
+	}
+	.clear:before{
+	  display:table;
+	  content:'';
+	  clear:both
+	}
+
+	.col-3 {
+	  width:200px;
+	  border:1px dotted #ddd;
+	  float:left;
+	  padding:30px;
+	  /*transform: skewX(-30deg);*/
+	  background: #fafafa;
+	  box-sizing: border-box;
+	}
+	.border{
+	  border-color:#257fbb;
+	}
+</style>
+<body style="background: #fafafa">
+	
+<h3>Custom Checkbox Button</h3>
+  <input type="checkbox" id="lbl"/>
+  <label for="lbl">I have a Pen.</label>
+  
+  <h3>Custom Radio Button</h3>
+  <input type="radio" id="r1" name="r1"/>
+  <label for="r1">Male</label>
+  <input type="radio" id="r2"  name="r1"/>
+  <label for="r2">Female</label>
+  <div class="clear"></div><br><br>
+  <div class="col-3">
+    <input type="radio" name="eazy" id="cpn"/>
+    <label for="cpn">#eazy1</label>
+  </div>
+  <div class="col-3">
+    <input type="radio" name="eazy" id="cpn1"/>
+    <label for="cpn1">#eazy2</label>
+  </div>
+  <div class="col-3">
+    <input type="radio" name="eazy" id="cpn2"/>
+    <label for="cpn2">#eazy3</label>
+  </div>
+
+<script src="js/jquery-2.0.2.js" type="text/javascript"></script>
+<script>
+	var d=$('input[type="radio"]').is(":checked");
+	var recentclick;
+
+$('input[type="radio"]').click(function(){
+	var val=$(this).is(":checked");
+	if (recentclick != null) {
+		$(recentclick).parent().removeClass('border');
+	}
+	if(val==true){
+		$(this).parent().addClass('border');
+		recentclick = $(this);
+	}
+})
+</script>
+</body>
